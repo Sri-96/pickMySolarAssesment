@@ -1,0 +1,6 @@
+<div>
+    <h2>Welcome {{firstName}} {{LastName}} </h2>
+</div>
+<div *ngIf="role == 'teacher'|| role == 'student'">
+    <a [routerLink]="['../profile']" class="btn btn-link">profile</a>
+</div>
