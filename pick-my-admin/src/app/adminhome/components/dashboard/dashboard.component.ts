@@ -20,6 +20,8 @@ logout(){
 
   if(res){
     this.router.navigate(['/login']);
+  }else{
+    alert("something went wrong");
   }
   //todo
 }

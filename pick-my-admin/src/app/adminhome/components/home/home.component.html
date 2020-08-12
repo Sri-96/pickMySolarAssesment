@@ -4,3 +4,7 @@
 <div *ngIf="role == 'teacher'|| role == 'student'">
     <a [routerLink]="['../profile']" class="btn btn-link">profile</a>
 </div>
+
+<div *ngIf="role == 'Admin'|| role == 'Principal'">
+    <a [routerLink]="['../users']" class="btn btn-link">List of users</a>
+</div>
