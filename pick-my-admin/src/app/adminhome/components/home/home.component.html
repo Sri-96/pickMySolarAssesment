@@ -1,10 +1,14 @@
-<div>
-    <h2>Welcome {{firstName}} {{LastName}} </h2>
-</div>
-<div *ngIf="role == 'teacher'|| role == 'student'">
-    <a [routerLink]="['../profile']" class="btn btn-link">profile</a>
-</div>
-
-<div *ngIf="role == 'Admin'|| role == 'Principal'">
-    <a [routerLink]="['../users']" class="btn btn-link">List of users</a>
+<div class="container">
+   <div class="profileSection mt-5">
+    <div>
+        <h2>Welcome {{firstName}} {{LastName}} </h2>
+    </div>
+    <div >
+        <a [routerLink]="['../profile']" class="btn btn-link">profile</a>
+    </div>
+    
+    <div *ngIf="role == 'Admin'|| role == 'Principal'">
+        <a [routerLink]="['../users']" class="btn btn-link">List of users</a>
+    </div>
+   </div>
 </div>

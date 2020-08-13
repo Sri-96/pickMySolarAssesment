@@ -1,0 +1,33 @@
+.profileSection {
+    width: 500px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    background-color:#ffffff;
+    margin-bottom:30px; 
+    padding-left:30px;
+    padding-right:30px; 
+    padding-top:35px; 
+    box-sizing: border-box;
+    border: 1px solid #e2e2e2;
+}
+.center{
+    text-align: center;
+}
+
+.header{
+    width:100%;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+  

@@ -1,1 +1,32 @@
-<p>profile works!</p>
+<div class="container">
+
+    <div class="header">
+        Profile
+    </div>
+
+
+    <div class="profileSection mt-5">
+        <div class="row align">
+            <div class=" col-3 row-Label">First Name</div>
+            <div id="name" class="col-9 data">{{userData.firstName}}</div>
+        </div>
+
+        <div class="row align">
+            <div class=" col-4 row-Label">Last Name</div>
+            <div id="name" class="col-8 data">{{userData.lastName}}</div>
+        </div>
+        <div class="row align">
+            <div class=" col-4 row-Label">Email</div>
+            <div id="name" class="col-8 data">{{userData.email}}</div>
+        </div>
+        <div class="row align">
+            <div class="col-9 row-Label">Role</div>
+            <div id="federalId" class="col-3 data">{{userData.title}} </div>
+        </div>
+        <div class="row align mb-3">
+            <div class="col-6 row-Label">Phone Number</div>
+            <div id="email" class="col-9 data"> {{userData.phone}} </div>
+        </div>
+    </div>
+
+</div>
