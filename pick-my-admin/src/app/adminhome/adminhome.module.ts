@@ -5,13 +5,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsersComponent } from './components/users/users.component';
 import { HomeComponent } from './components/home/home.component';
 import {AdminhomeRoutingModule} from './adminhome-routing.module';
+import { AngularMaterialModule } from '../material.module';
 
 
 @NgModule({
   declarations: [ProfileComponent, DashboardComponent, UsersComponent, HomeComponent],
   imports: [
     CommonModule,
-    AdminhomeRoutingModule
+    AdminhomeRoutingModule,
+    AngularMaterialModule
   ]
 })
 export class AdminhomeModule { }

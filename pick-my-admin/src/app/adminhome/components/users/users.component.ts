@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthserviceService} from '../../../services/authservice.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() { }
+  ListofUsers=[];
+  constructor(private router: Router,private authservice:AuthserviceService) { }
 
   ngOnInit(): void {
+   this.ListofUsers=this.authservice.getUsers()
+   console.log(this.ListofUsers);
   }
 
 }

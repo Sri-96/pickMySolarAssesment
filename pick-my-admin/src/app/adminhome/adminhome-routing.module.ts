@@ -9,22 +9,25 @@ import { AuthGuard } from '../guards/auth.guard';
 const adminRoutes: Routes = [
   {
     path: 'admin',
-    canActivate: [AuthGuard],
     component: DashboardComponent,
     children: [{
         path: '',
+        canActivate: [AuthGuard],
         redirectTo: 'home', pathMatch: 'full'
       },
       {
           path:'home',
+          canActivate: [AuthGuard],
           component:HomeComponent
       },
       {
         path: 'users',
+        canActivate: [AuthGuard],
         component:UsersComponent ,
       },
       {
         path: 'profile',
+        canActivate: [AuthGuard],
         component: ProfileComponent
       },]
   },

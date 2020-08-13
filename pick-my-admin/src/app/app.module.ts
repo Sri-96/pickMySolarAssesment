@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AdminloginModule} from './adminlogin/adminlogin.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import {AdminhomeModule} from './adminhome/adminhome.module'
+import {AdminhomeModule} from './adminhome/adminhome.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './material.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -16,7 +18,9 @@ import {AdminhomeModule} from './adminhome/adminhome.module'
     AdminhomeModule,
     ReactiveFormsModule,
     AdminRegisterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

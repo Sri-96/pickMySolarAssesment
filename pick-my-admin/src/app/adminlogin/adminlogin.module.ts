@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { AdminloginRoutingModule } from './adminlogin-routing.module';
+import { AngularMaterialModule } from '../material.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -10,7 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    AdminloginRoutingModule
+    AdminloginRoutingModule,
+    AngularMaterialModule
   ]
 })
 export class AdminloginModule { }

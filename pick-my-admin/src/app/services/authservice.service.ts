@@ -9,7 +9,7 @@ import { map, catchError } from 'rxjs/operators';
 
 
 export class AuthserviceService {
- users = JSON.parse(localStorage.getItem('users')) || [];
+  users = JSON.parse(localStorage.getItem('users')) || [];
 
   userid;
   constructor() { }
@@ -21,20 +21,20 @@ export class AuthserviceService {
     if (!user) return ('Username or password is incorrect');
 
     const response = {
-      status:200,
+      status: 200,
       id: user.id,
       username: user.username,
       firstName: user.firstName,
       lastName: user.lastName,
       token: (user.id) ? user.id + 5 : null
     }
-    localStorage.setItem("userId",response.id);
+    localStorage.setItem("userId", response.id);
     return response;
   }
 
   register(body) {
-    const user:any = body
-     console.log(user);
+    const user: any = body
+    console.log(user);
     if (this.users.find(x => x.email === user.email)) {
       return ('Username "' + user.firstName + '" is already taken')
     }
@@ -42,17 +42,17 @@ export class AuthserviceService {
     user.id = this.users.length ? this.users.length + 1 : 1;
     this.users.push(user);
     localStorage.setItem('users', JSON.stringify(this.users));
-    
+
     const registerRes = {
-      status : 200,
-      body : user
+      status: 200,
+      body: user
 
     }
-    return registerRes ;
+    return registerRes;
   }
 
   getUsers() {
-    let users =JSON.parse(localStorage.getItem('users')) || [];
+    let users = JSON.parse(localStorage.getItem('users')) || [];
     if (!this.isLoggedIn()) return false;
     return users;
   }
@@ -65,9 +65,9 @@ export class AuthserviceService {
   }
 
 
-  logout(){
+  logout() {
     localStorage.removeItem("userId");
-    if(!localStorage.getItem("userId")) return true;
+    if (!localStorage.getItem("userId")) return true;
 
     return false;
   }
@@ -75,9 +75,9 @@ export class AuthserviceService {
   // helper functions
 
 
-  isLoggedIn(): boolean  {
+  isLoggedIn(): boolean {
     this.userid = localStorage.getItem("userId")
-    if(this.userid)  {
+    if (this.userid) {
       return true;
     }
     else {
