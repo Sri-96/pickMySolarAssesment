@@ -4,21 +4,33 @@
 <div mat-dialog-content>
     <div>
         <mat-form-field>
-            <input matInput [(ngModel)]="data.firstName" placeholder="Name">
+            <input matInput [(ngModel)]="data.firstName" placeholder="Name" required>
         </mat-form-field>
         <mat-form-field>
-            <input matInput [(ngModel)]="data.email" placeholder="Email">
+            <input matInput [(ngModel)]="data.email" placeholder="Email" required>
         </mat-form-field>
         <mat-form-field>
-            <input matInput [(ngModel)]="data.lastName" placeholder="lastName">
+            <input matInput [(ngModel)]="data.lastName" placeholder="lastName" required>
         </mat-form-field>
+        <!-- <mat-form-field>
+            <input matInput [(ngModel)]="data.title" placeholder="Role">
+            </mat-form-field> -->
+
         <mat-form-field>
-            <input matInput [(ngModel)]="data.title" placeholder="title">
+            <mat-label>Select Role</mat-label>
+            <mat-select [(ngModel)]="data.title" name="Role" required>
+                <mat-option disabled [value]="">Select Role</mat-option>
+                <mat-option *ngFor="let des of Roles" [value]="des">
+                    {{des}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
     </div>
-   
+
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Update</button>
+    <span *ngIf="name ==''"><button mat-button [mat-dialog-close]="true" cdkFocusInitial>Add</button></span>
+    <span *ngIf="name"><button mat-button [mat-dialog-close]="true" cdkFocusInitial>Update</button></span>
+
 </div>
