@@ -1,10 +1,12 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" [routerLink]="['./home']">Home</a>
-       
+<nav class=" navbar navbar-expand navbar-dark bg-dark">
+    <div class=" ml-4 navbar-nav">
+
+        <a class="nav-item nav-link" [routerLink]="['./home']"><i class="fa fa-home"></i>
+            <span>Home</span></a>
+
     </div>
-    <div class="navbar-nav pull-right">
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    <div class="navbar-nav text-right ml-2">
+        <a href="javascript:;" class="nav-item nav-link" (click)="logout()">Logout</a>
     </div>
 </nav>
 

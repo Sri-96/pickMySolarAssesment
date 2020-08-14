@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { MustMatch } from '../../shared/must-match.validator';
 import { AuthserviceService } from '../../services/authservice.service'
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-register',
@@ -32,30 +33,30 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-
-    // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     }
-
-    // display form values on success
-    const data = (this.registerForm.value)
-
-    const response:any = this.authService.register(data);
-    
-    console.log(response);
+    const data = (this.registerForm.value);
+    const response:any = this.authService.register(data);    
     if(response.status == 200 ){
       let users = JSON.parse(localStorage.getItem('users')) || [];
-      console.log(users);
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+      // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+      Swal.fire(
+        '',
+        'Successfully registered.',
+        'success',
+      )
       
     }else{
-      alert(response);
+      Swal.fire(
+        '',
+        response,
+        'warning',
+      )   
     }
   }
 

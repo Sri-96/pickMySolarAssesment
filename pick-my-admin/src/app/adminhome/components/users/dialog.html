@@ -1,20 +1,24 @@
-<div>
-
-</div>
 <div mat-dialog-content>
-    <div>
+    <form #userForm="ngForm" class="pb-1" style="width: auto;">
         <mat-form-field>
-            <input matInput [(ngModel)]="data.firstName" placeholder="Name" required>
+            <input matInput [(ngModel)]="data.firstName" name="firstname" placeholder="Name" #firstname="ngModel"
+                required>
+            <mat-error class="error" *ngIf="firstname.errors && firstname.hasError('required')&& firstname.touched">
+                firstname is required</mat-error>
         </mat-form-field>
+
         <mat-form-field>
-            <input matInput [(ngModel)]="data.email" placeholder="Email" required>
+            <input matInput [(ngModel)]="data.lastName" name="lastname" #lastname="ngModel" placeholder="lastName"
+                required>
+            <mat-error class="error" *ngIf="lastname.errors && lastname.hasError('required') && lastname.touched">
+                lastname is required</mat-error>
         </mat-form-field>
+
         <mat-form-field>
-            <input matInput [(ngModel)]="data.lastName" placeholder="lastName" required>
+            <input matInput [(ngModel)]="data.email" name="Email" #Email="ngModel" placeholder="Email" required>
+            <mat-error class="error" *ngIf="Email.errors && Email.hasError('required') && Email.touched">Email is
+                required</mat-error>
         </mat-form-field>
-        <!-- <mat-form-field>
-            <input matInput [(ngModel)]="data.title" placeholder="Role">
-            </mat-form-field> -->
 
         <mat-form-field>
             <mat-label>Select Role</mat-label>
@@ -25,12 +29,14 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
-    </div>
+        <div mat-dialog-actions>
+            <button mat-button (click)="onNoClick()">Cancel</button>
+            <span *ngIf="name ==''"><button mat-button [mat-dialog-close]="true" [disabled]="userForm.invalid"
+                    cdkFocusInitial>Add</button></span>
+            <span *ngIf="name"><button mat-button [mat-dialog-close]="true" [disabled]="userForm.invalid"
+                    cdkFocusInitial>Update</button></span>
 
-</div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Cancel</button>
-    <span *ngIf="name ==''"><button mat-button [mat-dialog-close]="true" cdkFocusInitial>Add</button></span>
-    <span *ngIf="name"><button mat-button [mat-dialog-close]="true" cdkFocusInitial>Update</button></span>
+        </div>
+    </form>
 
 </div>

@@ -16,15 +16,13 @@ export class ProfileComponent implements OnInit {
 
   id = localStorage.getItem("userId");
   ngOnInit(): void {
-    this.getUsers();
+    this.getUserData();
   }
 
-  getUsers() {
+  getUserData() {
     this.allUsers = this.authservice.getUsers();
     let user = this.allUsers.filter(x => x.id == this.id);
-    console.log(user);
     this.userData = user[0];
-
   }
 
 }

@@ -7,8 +7,7 @@ import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { MatSort } from "@angular/material/sort";
 import Swal from 'sweetalert2'
 import {FormControl, Validators} from '@angular/forms';
-import { merge } from 'rxjs';
-import { last } from 'rxjs/operators';
+
 export interface PeriodicElement {
   id: string;
   firstName: string;
@@ -19,7 +18,6 @@ export interface PeriodicElement {
   confirmPassword: string;
   password: string;
   registredDate:Date;
-
 }
 
 @Component({
@@ -33,7 +31,6 @@ export class UsersComponent implements OnInit {
   displayedColumns: string[] = ["id", "firstName", "lastName", "email", "title","registredDate", "action", "delete"];
   dataSource
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
-  // @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   user;
   lenghtOfUsers;
@@ -50,9 +47,7 @@ export class UsersComponent implements OnInit {
       this.router.navigate(['/admin/home']);
       return false;
     }
-
     this.getUsers();
-
   }
 
   applyFilter(filterValue: string) {
@@ -65,24 +60,14 @@ export class UsersComponent implements OnInit {
     this.ListofUsers = this.authservice.getUsers();
     this.lenghtOfUsers = this.ListofUsers.length;
     this.tableData = this.ListofUsers
-    // .map(ele => ({
-    //   id: ele.id,
-    //   firstName: ele.firstName,
-    //   lastName: ele.lastName,
-    //   email: ele.email,
-    //   title: ele.title
-    // }))
     this.dataSource = new MatTableDataSource(this.tableData);
-
-    console.log(this.ListofUsers, this.tableData);
     this.dataSource.sort = this.sort;
   }
 
   deleteUser(user) {
-    console.log(user);
     Swal.fire({
       title: 'Are you sure?',
-      text: 'You will not be able to recover User!',
+      text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes, delete it!',
@@ -114,7 +99,6 @@ export class UsersComponent implements OnInit {
       title: "",
       registredDate:new Date()
     }
-    console.log(user);
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '250px',
       data: user,
@@ -122,7 +106,6 @@ export class UsersComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(user);
         this.tableData.push(user);
         this.ListofUsers = this.tableData;
         localStorage.setItem('users', JSON.stringify(this.tableData));
@@ -133,25 +116,18 @@ export class UsersComponent implements OnInit {
   }
 
   editUser(user) {
-    console.log(user);
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '250px',
       data: user,
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(user)
       if (result) {
         const userid = user.id;
-        let userIndex = this.ListofUsers.findIndex(e => e.id == userid)
-
+        let userIndex = this.ListofUsers.findIndex(e => e.id == userid);
         let newArray = this.ListofUsers;
-
         newArray[userIndex] = user;
-
         this.ListofUsers = newArray;
-
-        console.log(this.ListofUsers);
         localStorage.setItem('users', JSON.stringify(this.ListofUsers));
       }
     });
@@ -174,10 +150,7 @@ export class DialogOverviewExampleDialog {
     @Inject(MAT_DIALOG_DATA) public data: PeriodicElement) {
     const firstName = data.firstName;
     this.name = firstName;
-    console.log(this.name)
-
   }
-
 
   onNoClick(): void {
     this.dialogRef.close();

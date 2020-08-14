@@ -7,13 +7,16 @@ import { HomeComponent } from './components/home/home.component';
 import {AdminhomeRoutingModule} from './adminhome-routing.module';
 import { AngularMaterialModule } from '../material.module';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [ProfileComponent, DashboardComponent, UsersComponent, HomeComponent,DialogOverviewExampleDialog],
   imports: [
     CommonModule,
     AdminhomeRoutingModule,
     AngularMaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   entryComponents: [DialogOverviewExampleDialog]
 })
